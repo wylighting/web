@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-11T16:51:24.637Z</updated>
+  <updated>2016-11-12T09:26:58.316Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NO.1 Introduction to Computation</title>
+    <link href="http://yoursite.com/2016/11/12/no-1-introduction-to-computation/"/>
+    <id>http://yoursite.com/2016/11/12/no-1-introduction-to-computation/</id>
+    <published>2016-11-12T04:21:32.419Z</published>
+    <updated>2016-11-12T09:26:58.316Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Fundamentation-of-computer"><a href="#Fundamentation-of-computer" class="headerlink" title="Fundamentation of computer"></a>Fundamentation of computer</h2><ul>
+<li>Performs calculations (speed)</li>
+<li><p>Remember the results (storage)</p>
+<p>Though the speed is fast and the storage is large, there are some limitations.  </p>
+</li>
+<li>too complex</li>
+<li>impossible to compute( a classic problem is how to predict whether a piece of code will always halt with and answer for any input.)</li>
+</ul>
+<p>Fast simple calculations is always not enough for solving problems. A good algorithm design is needed.</p>
+<h2 id="computational-problem-solving"><a href="#computational-problem-solving" class="headerlink" title="computational problem solving"></a>computational problem solving</h2><p>knowledge?</p>
+<ul>
+<li>Declarative knowledge(陈述性知识）<blockquote>
+<p>statements of fact<br>some definition in math e.g. square root.</p>
+</blockquote>
+</li>
+<li>Imperative knowledge(命令性知识）<blockquote>
+<p>how to do . a recipe<br>have specific steps</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Fundamentation-of-computer&quot;&gt;&lt;a href=&quot;#Fundamentation-of-computer&quot; class=&quot;headerlink&quot; title=&quot;Fundamentation of computer&quot;&gt;&lt;/a&gt;Fundamen
+    
+    </summary>
+    
+      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
+    
+  </entry>
   
   <entry>
     <title>随笔NO.1</title>
