@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>swordigo</title>
+  <subtitle>嗨呀 我还能说什么= =</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-11-11T16:51:24.637Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Ren Haocheng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随笔NO.1</title>
+    <link href="http://yoursite.com/2016/11/11/diary-no-1/"/>
+    <id>http://yoursite.com/2016/11/11/diary-no-1/</id>
+    <published>2016-11-11T11:11:23.517Z</published>
+    <updated>2016-11-11T16:51:24.637Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lalala终于搭好了自己的blog"><a href="#lalala终于搭好了自己的blog" class="headerlink" title="lalala终于搭好了自己的blog"></a>lalala终于搭好了自己的blog</h1><a id="more"></a>
+<p>最近任务好多，自己好乱。</p>
+<h3 id="Task-List："><a href="#Task-List：" class="headerlink" title="Task List："></a>Task List：</h3><ul>
+<li>优班答辩三页纸</li>
+<li><a href="http://10.76.1.181/courses/training/mitF04/calendar.html" target="_blank" rel="external">MIT大作业</a> the last two assignments</li>
+<li>outdoorAR medianCut实现</li>
+<li>MIT online Course<blockquote>
+<p><a href="http://www.xuetangx.com/courses/course-v1:MITx+6_00_1x+sp/info" target="_blank" rel="external">6.00.1X</a> 计算机科学和PYTHON编程导论</p>
+<p><a href="http://www.xuetangx.com/courses/MITx/6_00_2x/2014_T2/info" target="_blank" rel="external">6.00.2X</a> 计算思维和数据科学导论</p>
+</blockquote>
+</li>
+<li>Unity 进阶与 shader </li>
+<li>英语六级</li>
+</ul>
+<p>反正有几个早晚要做的快点搞定吧。<br><strong>优班 MIT 项目</strong></p>
+<p>不要忘了英语啊！！！<br>Oh my poor English.<br>今天是双11:joy:<br>最后来个校徽：）</p>
+<p><img src="http://www.uestc.edu.cn/images/logo.png" alt="UESTC"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;lalala终于搭好了自己的blog&quot;&gt;&lt;a href=&quot;#lalala终于搭好了自己的blog&quot; class=&quot;headerlink&quot; title=&quot;lalala终于搭好了自己的blog&quot;&gt;&lt;/a&gt;lalala终于搭好了自己的blog&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="心情" scheme="http://yoursite.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="任务" scheme="http://yoursite.com/tags/%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2013/07/13/hello-world/"/>
+    <id>http://yoursite.com/2013/07/13/hello-world/</id>
+    <published>2013-07-13T12:46:25.000Z</published>
+    <updated>2016-11-11T11:35:53.468Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
