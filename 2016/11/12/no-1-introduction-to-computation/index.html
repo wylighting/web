@@ -30,7 +30,7 @@ Though the speed is fast and the storage is large, there are some limitations.
 
 too complex
 impossible to comp">
-<meta property="og:updated_time" content="2016-11-12T09:26:58.316Z">
+<meta property="og:updated_time" content="2016-11-13T02:47:24.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NO.1 Introduction to Computation">
 <meta name="twitter:description" content="Fundamentation of computer
@@ -168,7 +168,7 @@ impossible to comp">
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fundamentation-of-computer"><span class="post-toc-number">1.</span> <span class="post-toc-text">Fundamentation of computer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#computational-problem-solving"><span class="post-toc-number">2.</span> <span class="post-toc-text">computational problem solving</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fundamentation-of-computer"><span class="post-toc-number">1.</span> <span class="post-toc-text">Fundamentation of computer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Computational-problem-solving"><span class="post-toc-number">2.</span> <span class="post-toc-text">Computational problem solving</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Capture-a-recipe-how-to-run-program-basic-machine-architecture"><span class="post-toc-number">3.</span> <span class="post-toc-text">Capture a recipe? how to run program(basic machine architecture)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Programming-language-characteristic"><span class="post-toc-number">4.</span> <span class="post-toc-text">Programming language characteristic</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Aspects-of-languages"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Aspects of languages</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WRONG"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">WRONG</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -198,7 +198,7 @@ impossible to comp">
 <li>impossible to compute( a classic problem is how to predict whether a piece of code will always halt with and answer for any input.)</li>
 </ul>
 <p>Fast simple calculations is always not enough for solving problems. A good algorithm design is needed.</p>
-<h2 id="computational-problem-solving"><a href="#computational-problem-solving" class="headerlink" title="computational problem solving"></a>computational problem solving</h2><p>knowledge?</p>
+<h2 id="Computational-problem-solving"><a href="#Computational-problem-solving" class="headerlink" title="Computational problem solving"></a>Computational problem solving</h2><p>knowledge?</p>
 <ul>
 <li>Declarative knowledge(陈述性知识）<blockquote>
 <p>statements of fact<br>some definition in math e.g. square root.</p>
@@ -208,6 +208,30 @@ impossible to comp">
 <p>how to do . a recipe<br>have specific steps</p>
 </blockquote>
 </li>
+</ul>
+<h2 id="Capture-a-recipe-how-to-run-program-basic-machine-architecture"><a href="#Capture-a-recipe-how-to-run-program-basic-machine-architecture" class="headerlink" title="Capture a recipe? how to run program(basic machine architecture)"></a>Capture a recipe? how to run program(basic machine architecture)</h2><ul>
+<li>program – sequence of instructions<br>(predefined set of primitive instructions)</li>
+<li>interpreter – change flow of control</li>
+</ul>
+<blockquote>
+<p><em>Turing complete</em> (图灵完备) we can compute anything using six primitives!</p>
+</blockquote>
+<h2 id="Programming-language-characteristic"><a href="#Programming-language-characteristic" class="headerlink" title="Programming language characteristic"></a>Programming language characteristic</h2><p>Each programming language</p>
+<blockquote>
+<p>provides a set of primitive operations.<br>provides mechanisms(机制) for combining primitives to form complex expressions.<br>provides mechanisms for deducing(推断) meanings or values.</p>
+</blockquote>
+<h3 id="Aspects-of-languages"><a href="#Aspects-of-languages" class="headerlink" title="Aspects of languages"></a>Aspects of languages</h3><ul>
+<li>primitives–numbers,strings,simple operators.etc.</li>
+<li>syntax(语法)–strings of characters and symbols are <strong>well-formed</strong> .</li>
+<li>semantics(语义)<blockquote>
+<p>static semantics – syntactically valid strings have a meaning.<br>full semantics – meaning associated with a syntactically correct string of symbols with no static semantic errors(always have exactly one meaning in programming languages, ambiguous may happen in nature languages)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="WRONG"><a href="#WRONG" class="headerlink" title="WRONG"></a>WRONG</h3><ul>
+<li>Syntactic errors - easily cought</li>
+<li>satic semantic errors<br>-compiled language chech carefully before running.<br>-interpreted language check while interpreting the program.  </li>
+<li>Full semantic errors - don’t have static semantic error, the meaning is not what we intended.</li>
 </ul>
 
         </div>
