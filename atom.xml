@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-14T16:15:21.103Z</updated>
+  <updated>2016-11-14T17:05:12.783Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Random Walks and Simulation Models PART 2</title>
+    <link href="http://yoursite.com/2016/11/15/no-3-random-walks-and-simulation-models-part-2/"/>
+    <id>http://yoursite.com/2016/11/15/no-3-random-walks-and-simulation-models-part-2/</id>
+    <published>2016-11-14T16:57:54.757Z</published>
+    <updated>2016-11-14T17:05:12.783Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Brownian-Motion"><a href="#Brownian-Motion" class="headerlink" title="Brownian Motion"></a>Brownian Motion</h2><p>In 1827, the Scottish botanist(植物学家) Robert Brown observed that pollen (花粉)particles suspended in water seemed to float around at random.<br><em>made no attempts to model it mathematically.</em></p>
+<p>Brownian motion is example of something that has come to be called a random walk.</p>
+<h2 id="Drunken-Walker"><a href="#Drunken-Walker" class="headerlink" title="Drunken Walker"></a>Drunken Walker</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>A question comes. A drunken(酒醉的) farmer standing in the middle of the field.<br>And every second he takes one step in a random direction.<br>Now I want you to ponder(思索) the question, what is the expected distance from the<br>origin in, say 1,000 seconds.</p>
+<h3 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h3><ul>
+<li>Location</li>
+</ul>
+<ol>
+<li>two dimensions.</li>
+<li>No built-in assumption about direction.</li>
+</ol>
+<ul>
+<li>Field</li>
+</ul>
+<ol>
+<li>many drunks</li>
+<li>drunks can be at same location.</li>
+<li>field unbounded</li>
+</ol>
+<ul>
+<li>Drunk  </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Drunk</span><span class="params">(object)</span>:</span></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></div><div class="line"> self.name = name</div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line"> <span class="keyword">return</span> <span class="string">'This drunk is named '</span> + self.name</div><div class="line"></div><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UsualDrunk</span><span class="params">(Drunk)</span>:</span></div><div class="line"> <span class="function"><span class="keyword">def</span> <span class="title">takeStep</span><span class="params">(self)</span>:</span></div><div class="line"> stepChoices =\</div><div class="line"> [(<span class="number">0.0</span>,<span class="number">1.0</span>),(<span class="number">0.0</span>,<span class="number">-1.0</span>),(<span class="number">1.0</span>, <span class="number">0.0</span>),(<span class="number">-1.0</span>, <span class="number">0.0</span>)]</div><div class="line"> <span class="keyword">return</span> random.choice(stepChoices)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Brownian-Motion&quot;&gt;&lt;a href=&quot;#Brownian-Motion&quot; class=&quot;headerlink&quot; title=&quot;Brownian Motion&quot;&gt;&lt;/a&gt;Brownian Motion&lt;/h2&gt;&lt;p&gt;In 1827, the Scott
+    
+    </summary>
+    
+      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
+    
+  </entry>
   
   <entry>
     <title>Random Walks and Simulation Models PART 1</title>
