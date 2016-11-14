@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-13T02:51:17.939Z</updated>
+  <updated>2016-11-14T16:15:21.103Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Random Walks and Simulation Models PART 1</title>
+    <link href="http://yoursite.com/2016/11/14/no-2-random-walks-and-simulation-models/"/>
+    <id>http://yoursite.com/2016/11/14/no-2-random-walks-and-simulation-models/</id>
+    <published>2016-11-14T04:10:50.990Z</published>
+    <updated>2016-11-14T16:15:21.103Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Simulation-Models"><a href="#Simulation-Models" class="headerlink" title="Simulation Models"></a>Simulation Models</h2><p>an <em>experimental device</em> called model.  </p>
+<p>simulation models are <strong>descriptive(描述性的), not prescriptive（规定性的）.</strong></p>
+<h3 id="Kinds-of-simulation-model"><a href="#Kinds-of-simulation-model" class="headerlink" title="Kinds of simulation model"></a>Kinds of simulation model</h3><p>Deterministic(确定性模型) vs Stochastic(随机性模型)<br>Static vs Dynamic<br>Discrete vs Continuous</p>
+<ol>
+<li><strong>Deterministic</strong> simulations are completely defined by the model<br><em>Rerunning the simulation will not change the result</em>  <blockquote>
+<p>how a system works under given conditions, but not how to arrange the conditions to make the system work best.<br>Deterministic simulations are typically used when the system being modeled is too complex to analyze analytically(用解析方法).</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>Stochastic</strong> simulations include randomness<br><em>Different runs can generate different results</em></p>
+<ol>
+<li>In a <strong>discrete</strong> model, values of variables are enumerable (e.g.,<br>integers).<br>In a <strong>continuous</strong> model, they are not enumerable<br>(e.g., real numbers). </li>
+</ol>
+<p>Most prominently(最显著的是)<br><strong>systems that were not mathematically tractable(听话,驯服的)</strong> (social science e.g., economics) conventional mathematics（传统数学）doesn’t works.<br><strong>USE successive refinements</strong> – how to change the model to make the results more accurate.  </p>
+<blockquote>
+<p>pervasiveness(无处不在) of simulations<br>inevitably(不可避免地) somebody says, physics.</p>
+</blockquote>
+<p>To recapitulate(回顾 一下要点), simulation attempts to build an <strong>experimental device</strong> called model.<br>The goal of the model is to provide useful information about the possible behaviors of the system being modeled.<br><strong>Approximate of reality</strong></p>
+<blockquote>
+<p> All models are wrong, but some are useful.  </p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Simulation-Models&quot;&gt;&lt;a href=&quot;#Simulation-Models&quot; class=&quot;headerlink&quot; title=&quot;Simulation Models&quot;&gt;&lt;/a&gt;Simulation Models&lt;/h2&gt;&lt;p&gt;an &lt;em&gt;exp
+    
+    </summary>
+    
+      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
+    
+  </entry>
   
   <entry>
     <title>NO.1 Introduction to Computation</title>
