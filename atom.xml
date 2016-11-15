@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-14T17:05:12.783Z</updated>
+  <updated>2016-11-15T10:51:38.768Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Random Walks and Simulation Models PART 3</title>
+    <link href="http://yoursite.com/2016/11/15/no-4-random-walks-and-simulation-models-part-3/"/>
+    <id>http://yoursite.com/2016/11/15/no-4-random-walks-and-simulation-models-part-3/</id>
+    <published>2016-11-15T10:46:33.187Z</published>
+    <updated>2016-11-15T10:51:38.768Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Running-Python-Codes"><a href="#Running-Python-Codes" class="headerlink" title="Running Python Codes"></a>Running Python Codes</h2><p><strong>an importable module</strong> is not a <strong>script</strong> in python.</p>
+<p>The code provided in the courses website is a module. We can say the code without main function. So, it is necessary to import the model and run the function in ti.</p>
+<p>We can also executing modules as scripts.<br>using<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    <span class="keyword">import</span> sys</div><div class="line">    fib(int(sys.argv[<span class="number">1</span>]))</div></pre></td></tr></table></figure></p>
+<p>We can run a Python module like this:</p>
+<ul>
+<li>python fibo.py <arguments> </arguments></li>
+</ul>
+<blockquote>
+<p>There is a trick to run .py file under Python shell</p>
+<p>import os 载入os模块<br>os.chdir(“X:\XXX\YYY…”) 添加你的文件夹路径 注意用路径两侧有引号<br>execfile(“XXX.py”) 在这个路径中打开你的py文件  </p>
+<p>from fibo import *  we can use function name to access directly.</p>
+</blockquote>
+<p><a href="https://docs.python.org/2.7/tutorial/modules.html" target="_blank" rel="external">python documentation 6.Modules</a></p>
+<p><img src="http://ogirdcrob.bkt.clouddn.com/chdir.jpg" alt="methods to change directory"></p>
+<p><img src="http://ogirdcrob.bkt.clouddn.com/result.jpg" alt="using the main method"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Running-Python-Codes&quot;&gt;&lt;a href=&quot;#Running-Python-Codes&quot; class=&quot;headerlink&quot; title=&quot;Running Python Codes&quot;&gt;&lt;/a&gt;Running Python Codes&lt;/h2&gt;&lt;
+    
+    </summary>
+    
+      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
+    
+  </entry>
   
   <entry>
     <title>Random Walks and Simulation Models PART 2</title>
