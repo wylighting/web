@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>PAT 1001. A+B Format | swordigo | 嗨呀 我还能说什么= =</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="online judge,C/C++">
+  <meta name="description" content="1001. A+B Formathttps://www.patest.cn/contests/pat-a-practise/1001
+my codes-1000000 &amp;lt;= a, b &amp;lt;= 1000000.in 32bit machine, unsigned   int   0～4294967295   , int   -2147483648～2147483647 .So, it’s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 1001. A+B Format">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/index.html">
+<meta property="og:site_name" content="swordigo">
+<meta property="og:description" content="1001. A+B Formathttps://www.patest.cn/contests/pat-a-practise/1001
+my codes-1000000 &amp;lt;= a, b &amp;lt;= 1000000.in 32bit machine, unsigned   int   0～4294967295   , int   -2147483648～2147483647 .So, it’s">
+<meta property="og:updated_time" content="2016-11-16T03:29:51.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PAT 1001. A+B Format">
+<meta name="twitter:description" content="1001. A+B Formathttps://www.patest.cn/contests/pat-a-practise/1001
+my codes-1000000 &amp;lt;= a, b &amp;lt;= 1000000.in 32bit machine, unsigned   int   0～4294967295   , int   -2147483648～2147483647 .So, it’s">
+  
+    <link rel="alternative" href="/atom.xml" title="swordigo" type="application/atom+xml">
+  
+  <meta name="summary" content="">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/avatar_jpg.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Ren Haocheng</h5>
+          <a href="mailto:renhaocheng@163.com" title="renhaocheng@163.com" class="mail">renhaocheng@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/swordigo1995" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>swordigo &copy; 2013 - 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PAT 1001. A+B Format</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">PAT 1001. A+B Format</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-16T03:25:28.442Z" itemprop="datePublished" class="page-time">
+  2016-11-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PAT-Advanced-Level/">PAT(Advanced Level)</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1001-A-B-Format"><span class="post-toc-number">1.</span> <span class="post-toc-text">1001. A+B Format</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#my-codes"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">my codes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#other-solutions"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">other solutions</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2016-11-16-pat-1001-ab-format" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PAT 1001. A+B Format</h1>
+        <div class="post-meta">
+            <time datetime="2016-11-16T03:25:28.442Z" itemprop="datePublished" class="post-time">
+  2016-11-16
+</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/PAT-Advanced-Level/">PAT(Advanced Level)</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1001-A-B-Format"><a href="#1001-A-B-Format" class="headerlink" title="1001. A+B Format"></a>1001. A+B Format</h2><p><a href="https://www.patest.cn/contests/pat-a-practise/1001" target="_blank" rel="external">https://www.patest.cn/contests/pat-a-practise/1001</a></p>
+<h3 id="my-codes"><a href="#my-codes" class="headerlink" title="my codes"></a>my codes</h3><p>-1000000 &lt;= a, b &lt;= 1000000.<br>in 32bit machine, unsigned   int   0～4294967295   , int   -2147483648～2147483647 .<br>So, it’s not necessary to use high precision algorithm or long long/ _int64.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span> <span class="comment">//使用流操纵算子</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">  freopen(<span class="string">"out.txt"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</div><div class="line">  <span class="keyword">int</span> a, b, c;</div><div class="line">  <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</div><div class="line">  c = a + b;</div><div class="line">  <span class="built_in">cout</span>.fill(<span class="string">'0'</span>);</div><div class="line">  <span class="keyword">if</span> (c / <span class="number">1000000</span> != <span class="number">0</span>)</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; c / <span class="number">1000000</span> &lt;&lt; <span class="string">','</span> &lt;&lt; setw(<span class="number">3</span>) &lt;&lt; <span class="built_in">abs</span>((c % <span class="number">1000000</span>) / <span class="number">1000</span>) &lt;&lt; <span class="string">','</span> &lt;&lt; setw(<span class="number">3</span>) &lt;&lt; <span class="built_in">abs</span>(c % <span class="number">1000</span>);</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (c / <span class="number">1000</span> != <span class="number">0</span>)</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; c / <span class="number">1000</span> &lt;&lt; <span class="string">','</span> &lt;&lt; setw(<span class="number">3</span>) &lt;&lt; <span class="built_in">abs</span>(c % <span class="number">1000</span>);</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; c;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>warning:</p>
+<ul>
+<li>Don’t forget to fill “zero” after modulo operation.</li>
+<li>properties of positive and negative.</li>
+<li>This method only works under given precision.</li>
+</ul>
+<h3 id="other-solutions"><a href="#other-solutions" class="headerlink" title="other solutions"></a>other solutions</h3><p><strong>1. with universality</strong></p>
+<p>计算a+b的结果c，<em>处理掉负号</em>；<br>按c按1000进制将结果<em>存储在数组中</em>；<br>输出最高位；<br>剩下的每位：输出一个 “,” 号，再输出该位（补零）  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">int</span>  a,b,l,ans[<span class="number">10</span>];</div><div class="line"><span class="function"><span class="keyword">int</span>  <span class="title">main</span><span class="params">( )</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b); a+b&lt;<span class="number">0</span>; <span class="built_in">printf</span>(<span class="string">"-"</span>)) a=-a,b=-b;</div><div class="line">    <span class="keyword">for</span> (a+=b,l=a==<span class="number">0</span>; a; a/=<span class="number">1000</span>) ans[++l]=a%<span class="number">1000</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans[l]); --l; ) <span class="built_in">printf</span>(<span class="string">",%03d"</span>,ans[l]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>a cool code with less readability.</p>
+<p><strong>2. recursion</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> c)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(c/<span class="number">1000</span>)</div><div class="line">  &#123;</div><div class="line">    fun(c/<span class="number">1000</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">",%03d"</span>,c%<span class="number">1000</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,c);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> a,b;</div><div class="line">  <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</div><div class="line">  <span class="keyword">int</span> sum = a + b;</div><div class="line">  <span class="keyword">if</span>(sum &lt; <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"-"</span>;</div><div class="line">    sum = -sum;</div><div class="line">  &#125;</div><div class="line">  fun(sum);</div><div class="line">  <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>simple and a clear logic structure</p>
+<blockquote>
+<p>%3d–可以指定宽度，不足的左边补空格<br>%-3d–左对齐,右边补空格<br>%03d—一种左边补0的等宽格式,比如数字12,%03d出来就是: 012</p>
+</blockquote>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        转载请注明原文出处：<a href="/2016/11/16/2016-11-16-pat-1001-ab-format/" target="_blank" rel="external">http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar_jpg.jpg" alt="Ren Haocheng">
+            Ren Haocheng
+        </a>
+    </footer>
+</blockquote>
+        
+<div class="post-reward">
+    <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/online-judge/">online judge</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/15/no-4-random-walks-and-simulation-models-part-3/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Random Walks and Simulation Models PART 3</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="2016-11-16-pat-1001-ab-format" data-title="PAT 1001. A+B Format" data-url="http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'swordigo', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢你大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "PAT 1001. A+B Format",
+pic: "/img/avatar_jpg.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260800003&web_id=1260800003"></script>
+
+
+
+
+
+</body>
+</html>
