@@ -5,19 +5,26 @@
   
   
   
-  <title>Tags: MOOC | swordigo | 嗨呀 我还能说什么= =</title>
+  <title>Probability and Hashing PART 1 | swordigo | 嗨呀 我还能说什么= =</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="theme-color" content="#3F51B5">
   
   
-  <meta name="keywords" content="undefined">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="swordigo">
-<meta property="og:url" content="http://yoursite.com/tags/MOOC/index.html">
+  <meta name="keywords" content="study note,MOOC">
+  <meta name="description" content="Rolling a die(骰子)We looked at things quite informally (非正式地) before. lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).
+parabolic path(抛物线轨迹)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Probability and Hashing PART 1">
+<meta property="og:url" content="http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/index.html">
 <meta property="og:site_name" content="swordigo">
+<meta property="og:description" content="Rolling a die(骰子)We looked at things quite informally (非正式地) before. lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).
+parabolic path(抛物线轨迹)">
+<meta property="og:updated_time" content="2016-11-16T07:56:01.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swordigo">
+<meta name="twitter:title" content="Probability and Hashing PART 1">
+<meta name="twitter:description" content="Rolling a die(骰子)We looked at things quite informally (非正式地) before. lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).
+parabolic path(抛物线轨迹)">
   
     <link rel="alternative" href="/atom.xml" title="swordigo" type="application/atom+xml">
   
@@ -29,7 +36,7 @@
 <body>
   <div id="loading" class="active"></div>
 
-  <aside id="menu"  >
+  <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -60,7 +67,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
@@ -100,7 +107,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Tags: MOOC</div>
+        <div class="flex-col header-title ellipsis">Probability and Hashing PART 1</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -119,242 +126,186 @@
         
     </div>
 </header>
-<header class="content-header tags-header">
+<header class="content-header post-header">
 
     <div class="container">
-        <h1 class="title">Tags: MOOC</h1>
+        <h1 class="title">Probability and Hashing PART 1</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2016-11-16T07:56:01.907Z" itemprop="datePublished" class="page-time">
+  2016-11-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
+
             
         </h5>
     </div>
 
-     
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全部</a>
-         
-
-            <a href="/tags/online-judge/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">online judge</a>
-
-         
-
-            <a href="/tags/C-C/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">C/C++</a>
-
-         
-
-            <a href="/tags/study-note/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">study note</a>
-
-         
-
-            <a href="/tags/MOOC/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">MOOC</a>
-
-         
-
-            <a href="/tags/心情/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">心情</a>
-
-         
-
-            <a href="/tags/任务/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">任务</a>
-
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
-</div>
-
+    
 
 </header>
 
+
 <div class="container body-wrap">
     
-            <div class="waterfall">
-          
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Rolling-a-die-骰子"><span class="post-toc-number">1.</span> <span class="post-toc-text">Rolling a die(骰子)</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2016-11-16-probability-and-hashing-part-1" 
+  class="post-article article-type-post" itemprop="blogPost">
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time datetime="2016-11-16T07:56:01.907Z" itemprop="datePublished" class="post-time">
-  Nov 16, 2016
+    <div class="post-card">
+        <h1 class="post-card-title">Probability and Hashing PART 1</h1>
+        <div class="post-meta">
+            <time datetime="2016-11-16T07:56:01.907Z" itemprop="datePublished" class="post-time">
+  2016-11-16
 </time>
 
-      
+            
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
 
 
 
-    </div>
-    
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Rolling-a-die-骰子"><a href="#Rolling-a-die-骰子" class="headerlink" title="Rolling a die(骰子)"></a>Rolling a die(骰子)</h2><p>We looked at things quite informally (非正式地) before.<br> lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).</p>
+<p>parabolic path(抛物线轨迹)</p>
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/16/2016-11-16-probability-and-hashing-part-1/">Probability and Hashing PART 1</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+        </div>
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
-
+        <blockquote class="post-copyright">
+    <div class="content">
+        转载请注明原文出处：<a href="/2016/11/16/2016-11-16-probability-and-hashing-part-1/" target="_blank" rel="external">http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/</a>
     </div>
-    
-  </article>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar_jpg.jpg" alt="Ren Haocheng">
+            Ren Haocheng
+        </a>
+    </footer>
+</blockquote>
+        
+<div class="post-reward">
+    <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
 </div>
 
-        
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time datetime="2016-11-15T10:46:33.187Z" itemprop="datePublished" class="post-time">
-  Nov 15, 2016
-</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
-
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/15/no-4-random-walks-and-simulation-models-part-3/">Random Walks and Simulation Models PART 3</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
+        <div class="post-footer">
+            
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
 
-    </div>
-    
-  </article>
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
 </div>
 
-        
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time datetime="2016-11-14T16:57:54.757Z" itemprop="datePublished" class="post-time">
-  Nov 15, 2016
-</time>
+        </div>
+    </div>   
 
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
-
-
-
-    </div>
     
-
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/11/16/2016-11-16-listening-comprehension/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">listening comprehension</h4>
+      </a>
+    </div>
+  
 
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/15/no-3-random-walks-and-simulation-models-part-2/">Random Walks and Simulation Models PART 2</a>
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/16/2016-11-16-pat-1001-ab-format/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PAT 1001. A+B Format</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="2016-11-16-probability-and-hashing-part-1" data-title="Probability and Hashing PART 1" data-url="http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'swordigo', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢你大爷~
+        <i class="icon icon-quote-right"></i>
     </h3>
-  
-
-
-
-    
-    <div class="post-footer">
+    <ul class="reward-items">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
 
-    </div>
-    
-  </article>
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
 </div>
 
-        
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time datetime="2016-11-14T04:10:50.990Z" itemprop="datePublished" class="post-time">
-  Nov 14, 2016
-</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
-
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/14/no-2-random-walks-and-simulation-models/">Random Walks and Simulation Models PART 1</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-        
-
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time datetime="2016-11-12T04:21:32.419Z" itemprop="datePublished" class="post-time">
-  Nov 12, 2016
-</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MIT-6-00-STUDY-NOTES/">MIT 6.00 STUDY NOTES</a></li></ul>
-
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/11/12/no-1-introduction-to-computation/">NO.1 Introduction to Computation</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MOOC/">MOOC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
-
-    </div>
-    
-  </article>
-</div>
-
-        
-            </div>
-        
-    
 </div>
   </main>
   <div class="mask" id="mask"></div>
@@ -362,10 +313,10 @@
 
 <script>var BLOG = { ROOT: '/' };
 BLOG.SHARE = {
-title: "swordigo",
+title: "Probability and Hashing PART 1",
 pic: "/img/avatar_jpg.jpg",
 summary: document.getElementsByName('summary')[0].content,
-url: "http://yoursite.com/tags/MOOC/" }
+url: "http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/" }
 </script>
 <div class="global-share" id="global-share">
     <div class="tit">分享到：</div>
