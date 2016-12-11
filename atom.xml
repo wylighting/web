@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-18T13:05:01.304Z</updated>
+  <updated>2016-12-11T04:03:14.031Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,97 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随笔NO.2</title>
+    <link href="http://yoursite.com/2016/12/11/2016-12-11-no-2/"/>
+    <id>http://yoursite.com/2016/12/11/2016-12-11-no-2/</id>
+    <published>2016-12-11T03:52:38.538Z</published>
+    <updated>2016-12-11T04:03:14.031Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="优班结束，start-a-new-life"><a href="#优班结束，start-a-new-life" class="headerlink" title="优班结束，start a new life"></a>优班结束，start a new life</h1><p>好久没有更新博客了。<br>12月9号晚上。搞了两个月之久的优班终于结束了。。。<br>本以为从三句半突然变换方式很不好，没想到效果还不错。。<br>三年前谁又能知道我们班可以获得邦清班呢？  </p>
+<p>昨天和大志去看了下机场大巴的地方，逛了下春熙路…<br>订了12月21的机票。<br>接下来就看看英语吧。 </p>
+<p>毕设做的是 physically based rendering :)<br>正是我想要的研究方向~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;优班结束，start-a-new-life&quot;&gt;&lt;a href=&quot;#优班结束，start-a-new-life&quot; class=&quot;headerlink&quot; title=&quot;优班结束，start a new life&quot;&gt;&lt;/a&gt;优班结束，start a new life&lt;/
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="心情" scheme="http://yoursite.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="任务" scheme="http://yoursite.com/tags/%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++内存管理</title>
+    <link href="http://yoursite.com/2016/11/27/2016-11-27-c/"/>
+    <id>http://yoursite.com/2016/11/27/2016-11-27-c/</id>
+    <published>2016-11-27T03:46:51.504Z</published>
+    <updated>2016-11-27T03:46:51.620Z</updated>
+    
+    <content type="html"><![CDATA[<p>转<a href="http://blog.csdn.net/masterft/article/details/1711706" target="_blank" rel="external">http://blog.csdn.net/masterft/article/details/1711706</a></p>
+<h1 id="C-内存管理-整理笔记"><a href="#C-内存管理-整理笔记" class="headerlink" title="C++内存管理(整理笔记)"></a>C++内存管理(整理笔记)</h1><h2 id="C-内存管理详解"><a href="#C-内存管理详解" class="headerlink" title="C++内存管理详解"></a>C++内存管理详解</h2><p>l          内存分配方式</p>
+<p>  在C++中,内存分成5个区,分别是堆、栈、自由存储区、全局/静态区和常量存储区.</p>
+<ul>
+<li>栈:存放函数参数以及局部变量,在出作用域时,将自动被释放.栈内存分配运算内置于处理器的指令集中,效率很高,但分配的内存容量有限.</li>
+<li>堆:new分配的内存块(包括数组,类实例等),需delete手动释放.如果未释放,在整个程序结束后,OS会帮你回收掉.</li>
+<li>自由存储区:malloc分配的内存块,需free手动释放.它和堆有些相似.</li>
+<li>全局/静态区:全局变量(global)和静态变量(static)存于此处.(在以前的C语言中,全局变量又分为初始化的和未初始化的,C++不分)</li>
+<li>常量存储区:常量(const)存于此处,此存储区不可修改.<br>l          堆与栈的区别<br>void f()<br>{<pre><code>int *p = new int[5];
+</code></pre>}<br>上面一段代码就包含了堆与栈.指针P被分配在了栈中,而new出来的东西则被分配在了堆中,此句可以解释为”在栈中存放了一个指向堆内存的指针p”.(可否理解为:指针p的值是堆内存块的首地址??????)<pre><code>主要区别:
+</code></pre>管理方式不同: 栈是编译器自动管理的,堆需手动释放<br>空间大小不同: 在32位OS下,堆内存可达到4GB的的空间,而栈就小得可怜.(VC6中,栈默认大小是1M,当然,你可以修改它)<br>能否产生碎片不同:对于栈来说,进栈/出栈都有着严格的顺序(先进后出),不会产生碎片;而堆频繁的new/delete,会造成内存空间的不连续,容易产生碎片.<br>生长方向不同:栈向下生长,以降序分配内存地址;堆向上生长,以升序分配内在地址.<br>分配方式不同:堆动态分配,无静态分配;栈分为静态分配和动态分配,比如局部变量的分配,就是动态分配(alloca函数),函数参数的分配就是动态分配(我想的…).<br>分配效率不同:栈是系统提供的数据结构,计算机会在底层对栈提供支持,进栈/出栈都有专门的指令,这就决定了栈的效率比较高.堆则不然,它由C/C++函数库提供,机制复杂,堆的效率要比栈低得多.<br>可以看出,栈的效率要比堆高很多,所以,推荐大家尽量用栈.不过,虽然栈有如此多的好处,但远没有堆使用灵活.<br>l          控制C++的内存分配<br>其实C++的内存管理容易而且安全,因为当一个对象消除时,它的析构函数能够安全的释放所有分配的内存.在嵌入式系统中,内存的分配是一个常见问题,保守的使用内存分配是嵌入式环境中的第一原则.<br>当你需使用new/delete时,一个防止堆破碎的通用方法是从不同固定大小的内存池中分配不同类型的对象(??????).对每个类重载new和delete就提供了这样的控制.<br>class TestClass<br>{<pre><code>void *operator new(size_t size);
+void operator delete(void *p);
+</code></pre>};<br>void *TestClass::operator new(size_t size)<br>{<pre><code>void *p = malloc(size);
+return p;
+</code></pre>}<br>void TestClass::operator delete(void *p)<br>{<pre><code>free(p);
+</code></pre>}<br>而对象数组的分配又不同于单个对象的分配,所以你仍需再重载new[]和delete[]操作符.但值得注意的是,对于C++而言,分配对象数组的大小等于数组参数的大小再加上额外的对象数目的一些字节,所以要尽量避免使用对象数组.<br>class TestClass<br>{<pre><code>void *operator new[](size_t size);
+void operator delete[](void *p);
+</code></pre>};<br>void *TestClass::operator new<a href="size_t size"></a><br>{<pre><code>void *p = malloc(size);
+return p;
+</code></pre>}<br>void TestClass::operator delete<a href="void *p"></a><br>{<pre><code>free(p);
+</code></pre>}<br>void main()<br>{<pre><code>TestClass *p = new TestClass[10];
+delete[] p;
+</code></pre>}<br>l          常见的内存错误及对策<br>²         内存分配未成功,却使用了它<br>解决办法:在使用之前检查指针是否为NULL,如果指针p是函数参数,那么在函数入口处assert(p!=NULL).如果是用malloc或new申请的话,应该用if(p==NULL)进行防错处理.<br>²         内存分配成功,但未初始化就使用它<br>  解决办法:不要嫌麻烦,记得初始化就行了.<br>²         内存分配成功且已初始化,但操作越过了边界<br>  解决办法:此问题通常出现于循环之中,注意不要多1或少1就行.<br>²         忘记释放内存<br>  解决办法:含有这个错误的函数每调用一次就丢失一块内存,造成内存耗尽.记得free或delete就行.<br>²         释放了内存却继续使用它<br>有三种情况:<br>※程序中对象的关系过于复杂,难以搞清哪个对象是否已经释放了内存.<br>※函数中return写错,返回了指向栈中的指针或引用.<br>※ free或delete后,没有将指针设为NULL,产生”野指针”.<br>l          指针与数组<br>C++中,指针和数组有着不少相似的地方,容易让我产生错觉,以为它们是等价的,其实不然.数组<pre><code>在静态存储区或是栈上被创建,数组名对应着(而不是指向)一块内存,其地址与容量在生命周期内保持
+不变.而指针可以随时指向任意类型的内存块,远比数组灵活,但也危险.
+char a[] = &quot;hello&quot;;
+</code></pre>a[0] = ‘x’;<br>char *p = “world”;<br>p[0] = ‘y’; //试图修改常量字符串,编译器不能发现,执行会报错<br>杜绝”野指针”<br>“野指针”不是NULL指针,是指向”垃圾内存”的指针.它的缺省值是随机的,所以它会乱指一气.<br>产生”野指针”的原因有3种:<br>1、指针变量没有被初始化;<br>2、指针被free/delete后被没有设置为NULL;<br>3、指针操作超越了变量的作用域范围.如下例,p-&gt;fun()时,a已经消失.<br>class A<br>{<br>public:<pre><code>void fun()
+{}
+</code></pre>};<br>void Test()<br>{<pre><code>A *p;
+{
+       A a;
+       p = &amp;a; //a的生命周期会在出作用域时结束
+}
+p-&gt;fun(); //p此时是&quot;野指针&quot;
+</code></pre>}<br>l          malloc/free 和new/delete<br>有了malloc/free为何还需要new/delete呢? malloc/free是标准库函数,而new/delete是运算符,它们都可用于申请/释放动态内存.但对于非基本数据类型(比如类对象)而言, malloc/free无法自动执行对象的构造/析构函数.而new/delete却可以.<pre><code>malloc
+</code></pre>函数malloc的原型:<br>void *malloc(size_t size);<pre><code>函数malloc的使用:
+       int *p = (int*)malloc(sizeof(int)*length);//length前是乘号
+可见,在使用malloc时需要进行类型转换.而使用sizeof运算符也是良好的代码风格.
+new
+</code></pre>new内置了sizeof,所以用起来写法更简洁.注意,使用new创建对象数组时,只能使用对象的无参数构造函数.如 Obj <em>o = new Obj[100];<br>l          内存耗尽怎么办?<br>解决办法:<br>1、判断指针是否为NULL,如果是立即返回<br>void fun()<br>{<br>  A </em>a = new A();<br>  if(a==NULL)<pre><code>return;
+</code></pre>}<br>2、判断指针是否为NULL,如果是立即终止<br>void fun()<br>{<br>  A *a = new A();<br>  if(a==NULL)<pre><code>exit(1);
+</code></pre>}<br>提示:不要不忍心使用exit(1),否则会害死OS.所以推荐使用方法2.不过搞笑的是,在32位OS上,永远也不会内存耗尽.</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转&lt;a href=&quot;http://blog.csdn.net/masterft/article/details/1711706&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/masterft/article/det
+    
+    </summary>
+    
+    
+      <category term="c++" scheme="http://yoursite.com/tags/c/"/>
+    
+      <category term="programming languages" scheme="http://yoursite.com/tags/programming-languages/"/>
+    
+  </entry>
   
   <entry>
     <title>PAT 1002. A+B for Polynomials</title>
@@ -136,15 +227,23 @@
     <link href="http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/"/>
     <id>http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/</id>
     <published>2016-11-16T07:56:01.907Z</published>
-    <updated>2016-11-16T07:56:01.977Z</updated>
+    <updated>2016-11-19T03:59:27.297Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Rolling-a-die-骰子"><a href="#Rolling-a-die-骰子" class="headerlink" title="Rolling a die(骰子)"></a>Rolling a die(骰子)</h2><p>We looked at things quite informally (非正式地) before.<br> lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).</p>
-<p>parabolic path(抛物线轨迹)</p>
+    <content type="html"><![CDATA[<h2 id="Rolling-a-die-骰子"><a href="#Rolling-a-die-骰子" class="headerlink" title="Rolling a die(骰子)"></a>Rolling a die(骰子)</h2><h2 id="Sampling-and-Monte-Carlo-Simulations"><a href="#Sampling-and-Monte-Carlo-Simulations" class="headerlink" title="Sampling and Monte Carlo Simulations"></a>Sampling and Monte Carlo Simulations</h2><h3 id="The-Copenhagen-Doctrine"><a href="#The-Copenhagen-Doctrine" class="headerlink" title="The Copenhagen Doctrine"></a>The Copenhagen Doctrine</h3><p>The behavior of the physical world cannot be predicted.</p>
+<h3 id="Nondeterminism"><a href="#Nondeterminism" class="headerlink" title="Nondeterminism"></a>Nondeterminism</h3><ol>
+<li><p>causal nondeterminism (因果不确定性)<br>Not every event is caused by previous events</p>
+</li>
+<li><p>predictive nondeterminism(预测不确定性)<br>Lack of knowledge about the world makes it impossible make<br>accurate predications about future states<br>原理上无法预测？没有足够的信息而无法预测？</p>
+</li>
+</ol>
+<h3 id="Stochastic-Processes"><a href="#Stochastic-Processes" class="headerlink" title="Stochastic Processes"></a>Stochastic Processes</h3><p>An ongoing process where the next state might depend on both the previous states and some random element.</p>
+<h3 id="some-English-notes"><a href="#some-English-notes" class="headerlink" title="some English notes"></a>some English notes</h3><p>We looked at things quite informally (非正式地) before.<br> lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).</p>
+<p>parabolic path(抛物线轨迹)<br>The physical world is a completely predicable place.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Rolling-a-die-骰子&quot;&gt;&lt;a href=&quot;#Rolling-a-die-骰子&quot; class=&quot;headerlink&quot; title=&quot;Rolling a die(骰子)&quot;&gt;&lt;/a&gt;Rolling a die(骰子)&lt;/h2&gt;&lt;p&gt;We looked at
+      &lt;h2 id=&quot;Rolling-a-die-骰子&quot;&gt;&lt;a href=&quot;#Rolling-a-die-骰子&quot; class=&quot;headerlink&quot; title=&quot;Rolling a die(骰子)&quot;&gt;&lt;/a&gt;Rolling a die(骰子)&lt;/h2&gt;&lt;h2 id=&quot;Samplin
     
     </summary>
     

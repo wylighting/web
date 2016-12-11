@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>C++内存管理 | swordigo | 嗨呀 我还能说什么= =</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="c++,programming languages">
+  <meta name="description" content="转http://blog.csdn.net/masterft/article/details/1711706
+C++内存管理(整理笔记)C++内存管理详解l          内存分配方式
+  在C++中,内存分成5个区,分别是堆、栈、自由存储区、全局/静态区和常量存储区.
+
+栈:存放函数参数以及局部变量,在出作用域时,将自动被释放.栈内存分配运算内置于处理器的指令集中,效率很高,但分配的内存容量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++内存管理">
+<meta property="og:url" content="http://yoursite.com/2016/11/27/2016-11-27-c/index.html">
+<meta property="og:site_name" content="swordigo">
+<meta property="og:description" content="转http://blog.csdn.net/masterft/article/details/1711706
+C++内存管理(整理笔记)C++内存管理详解l          内存分配方式
+  在C++中,内存分成5个区,分别是堆、栈、自由存储区、全局/静态区和常量存储区.
+
+栈:存放函数参数以及局部变量,在出作用域时,将自动被释放.栈内存分配运算内置于处理器的指令集中,效率很高,但分配的内存容量">
+<meta property="og:updated_time" content="2016-11-27T03:46:51.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++内存管理">
+<meta name="twitter:description" content="转http://blog.csdn.net/masterft/article/details/1711706
+C++内存管理(整理笔记)C++内存管理详解l          内存分配方式
+  在C++中,内存分成5个区,分别是堆、栈、自由存储区、全局/静态区和常量存储区.
+
+栈:存放函数参数以及局部变量,在出作用域时,将自动被释放.栈内存分配运算内置于处理器的指令集中,效率很高,但分配的内存容量">
+  
+    <link rel="alternative" href="/atom.xml" title="swordigo" type="application/atom+xml">
+  
+  <meta name="summary" content="">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/avatar_jpg.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Ren Haocheng</h5>
+          <a href="mailto:renhaocheng@163.com" title="renhaocheng@163.com" class="mail">renhaocheng@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/swordigo1995" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>swordigo &copy; 2013 - 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C++内存管理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">C++内存管理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-27T03:46:51.504Z" itemprop="datePublished" class="page-time">
+  2016-11-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-内存管理-整理笔记"><span class="post-toc-number">1.</span> <span class="post-toc-text">C++内存管理(整理笔记)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C-内存管理详解"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">C++内存管理详解</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2016-11-27-c" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C++内存管理</h1>
+        <div class="post-meta">
+            <time datetime="2016-11-27T03:46:51.504Z" itemprop="datePublished" class="post-time">
+  2016-11-27
+</time>
+
+            
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>转<a href="http://blog.csdn.net/masterft/article/details/1711706" target="_blank" rel="external">http://blog.csdn.net/masterft/article/details/1711706</a></p>
+<h1 id="C-内存管理-整理笔记"><a href="#C-内存管理-整理笔记" class="headerlink" title="C++内存管理(整理笔记)"></a>C++内存管理(整理笔记)</h1><h2 id="C-内存管理详解"><a href="#C-内存管理详解" class="headerlink" title="C++内存管理详解"></a>C++内存管理详解</h2><p>l          内存分配方式</p>
+<p>  在C++中,内存分成5个区,分别是堆、栈、自由存储区、全局/静态区和常量存储区.</p>
+<ul>
+<li>栈:存放函数参数以及局部变量,在出作用域时,将自动被释放.栈内存分配运算内置于处理器的指令集中,效率很高,但分配的内存容量有限.</li>
+<li>堆:new分配的内存块(包括数组,类实例等),需delete手动释放.如果未释放,在整个程序结束后,OS会帮你回收掉.</li>
+<li>自由存储区:malloc分配的内存块,需free手动释放.它和堆有些相似.</li>
+<li>全局/静态区:全局变量(global)和静态变量(static)存于此处.(在以前的C语言中,全局变量又分为初始化的和未初始化的,C++不分)</li>
+<li>常量存储区:常量(const)存于此处,此存储区不可修改.<br>l          堆与栈的区别<br>void f()<br>{<pre><code>int *p = new int[5];
+</code></pre>}<br>上面一段代码就包含了堆与栈.指针P被分配在了栈中,而new出来的东西则被分配在了堆中,此句可以解释为”在栈中存放了一个指向堆内存的指针p”.(可否理解为:指针p的值是堆内存块的首地址??????)<pre><code>主要区别:
+</code></pre>管理方式不同: 栈是编译器自动管理的,堆需手动释放<br>空间大小不同: 在32位OS下,堆内存可达到4GB的的空间,而栈就小得可怜.(VC6中,栈默认大小是1M,当然,你可以修改它)<br>能否产生碎片不同:对于栈来说,进栈/出栈都有着严格的顺序(先进后出),不会产生碎片;而堆频繁的new/delete,会造成内存空间的不连续,容易产生碎片.<br>生长方向不同:栈向下生长,以降序分配内存地址;堆向上生长,以升序分配内在地址.<br>分配方式不同:堆动态分配,无静态分配;栈分为静态分配和动态分配,比如局部变量的分配,就是动态分配(alloca函数),函数参数的分配就是动态分配(我想的…).<br>分配效率不同:栈是系统提供的数据结构,计算机会在底层对栈提供支持,进栈/出栈都有专门的指令,这就决定了栈的效率比较高.堆则不然,它由C/C++函数库提供,机制复杂,堆的效率要比栈低得多.<br>可以看出,栈的效率要比堆高很多,所以,推荐大家尽量用栈.不过,虽然栈有如此多的好处,但远没有堆使用灵活.<br>l          控制C++的内存分配<br>其实C++的内存管理容易而且安全,因为当一个对象消除时,它的析构函数能够安全的释放所有分配的内存.在嵌入式系统中,内存的分配是一个常见问题,保守的使用内存分配是嵌入式环境中的第一原则.<br>当你需使用new/delete时,一个防止堆破碎的通用方法是从不同固定大小的内存池中分配不同类型的对象(??????).对每个类重载new和delete就提供了这样的控制.<br>class TestClass<br>{<pre><code>void *operator new(size_t size);
+void operator delete(void *p);
+</code></pre>};<br>void *TestClass::operator new(size_t size)<br>{<pre><code>void *p = malloc(size);
+return p;
+</code></pre>}<br>void TestClass::operator delete(void *p)<br>{<pre><code>free(p);
+</code></pre>}<br>而对象数组的分配又不同于单个对象的分配,所以你仍需再重载new[]和delete[]操作符.但值得注意的是,对于C++而言,分配对象数组的大小等于数组参数的大小再加上额外的对象数目的一些字节,所以要尽量避免使用对象数组.<br>class TestClass<br>{<pre><code>void *operator new[](size_t size);
+void operator delete[](void *p);
+</code></pre>};<br>void *TestClass::operator new<a href="size_t size"></a><br>{<pre><code>void *p = malloc(size);
+return p;
+</code></pre>}<br>void TestClass::operator delete<a href="void *p"></a><br>{<pre><code>free(p);
+</code></pre>}<br>void main()<br>{<pre><code>TestClass *p = new TestClass[10];
+delete[] p;
+</code></pre>}<br>l          常见的内存错误及对策<br>²         内存分配未成功,却使用了它<br>解决办法:在使用之前检查指针是否为NULL,如果指针p是函数参数,那么在函数入口处assert(p!=NULL).如果是用malloc或new申请的话,应该用if(p==NULL)进行防错处理.<br>²         内存分配成功,但未初始化就使用它<br>  解决办法:不要嫌麻烦,记得初始化就行了.<br>²         内存分配成功且已初始化,但操作越过了边界<br>  解决办法:此问题通常出现于循环之中,注意不要多1或少1就行.<br>²         忘记释放内存<br>  解决办法:含有这个错误的函数每调用一次就丢失一块内存,造成内存耗尽.记得free或delete就行.<br>²         释放了内存却继续使用它<br>有三种情况:<br>※程序中对象的关系过于复杂,难以搞清哪个对象是否已经释放了内存.<br>※函数中return写错,返回了指向栈中的指针或引用.<br>※ free或delete后,没有将指针设为NULL,产生”野指针”.<br>l          指针与数组<br>C++中,指针和数组有着不少相似的地方,容易让我产生错觉,以为它们是等价的,其实不然.数组<pre><code>在静态存储区或是栈上被创建,数组名对应着(而不是指向)一块内存,其地址与容量在生命周期内保持
+不变.而指针可以随时指向任意类型的内存块,远比数组灵活,但也危险.
+char a[] = &quot;hello&quot;;
+</code></pre>a[0] = ‘x’;<br>char *p = “world”;<br>p[0] = ‘y’; //试图修改常量字符串,编译器不能发现,执行会报错<br>杜绝”野指针”<br>“野指针”不是NULL指针,是指向”垃圾内存”的指针.它的缺省值是随机的,所以它会乱指一气.<br>产生”野指针”的原因有3种:<br>1、指针变量没有被初始化;<br>2、指针被free/delete后被没有设置为NULL;<br>3、指针操作超越了变量的作用域范围.如下例,p-&gt;fun()时,a已经消失.<br>class A<br>{<br>public:<pre><code>void fun()
+{}
+</code></pre>};<br>void Test()<br>{<pre><code>A *p;
+{
+       A a;
+       p = &amp;a; //a的生命周期会在出作用域时结束
+}
+p-&gt;fun(); //p此时是&quot;野指针&quot;
+</code></pre>}<br>l          malloc/free 和new/delete<br>有了malloc/free为何还需要new/delete呢? malloc/free是标准库函数,而new/delete是运算符,它们都可用于申请/释放动态内存.但对于非基本数据类型(比如类对象)而言, malloc/free无法自动执行对象的构造/析构函数.而new/delete却可以.<pre><code>malloc
+</code></pre>函数malloc的原型:<br>void *malloc(size_t size);<pre><code>函数malloc的使用:
+       int *p = (int*)malloc(sizeof(int)*length);//length前是乘号
+可见,在使用malloc时需要进行类型转换.而使用sizeof运算符也是良好的代码风格.
+new
+</code></pre>new内置了sizeof,所以用起来写法更简洁.注意,使用new创建对象数组时,只能使用对象的无参数构造函数.如 Obj <em>o = new Obj[100];<br>l          内存耗尽怎么办?<br>解决办法:<br>1、判断指针是否为NULL,如果是立即返回<br>void fun()<br>{<br>  A </em>a = new A();<br>  if(a==NULL)<pre><code>return;
+</code></pre>}<br>2、判断指针是否为NULL,如果是立即终止<br>void fun()<br>{<br>  A *a = new A();<br>  if(a==NULL)<pre><code>exit(1);
+</code></pre>}<br>提示:不要不忍心使用exit(1),否则会害死OS.所以推荐使用方法2.不过搞笑的是,在32位OS上,永远也不会内存耗尽.</li>
+</ul>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        转载请注明原文出处：<a href="/2016/11/27/2016-11-27-c/" target="_blank" rel="external">http://yoursite.com/2016/11/27/2016-11-27-c/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar_jpg.jpg" alt="Ren Haocheng">
+            Ren Haocheng
+        </a>
+    </footer>
+</blockquote>
+        
+<div class="post-reward">
+    <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming-languages/">programming languages</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/12/11/2016-12-11-no-2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">随笔NO.2</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/11/18/2016-11-18-pat-1002-ab-for-polynomials/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PAT 1002. A+B for Polynomials</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="2016-11-27-c" data-title="C++内存管理" data-url="http://yoursite.com/2016/11/27/2016-11-27-c/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'swordigo', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢你大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "C++内存管理",
+pic: "/img/avatar_jpg.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/2016/11/27/2016-11-27-c/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260800003&web_id=1260800003"></script>
+
+
+
+
+
+</body>
+</html>
