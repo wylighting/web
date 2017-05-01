@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-11T04:07:43.019Z</updated>
+  <updated>2017-05-01T20:39:10.411Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CommingBack</title>
+    <link href="http://yoursite.com/2017/05/02/CommingBack/"/>
+    <id>http://yoursite.com/2017/05/02/CommingBack/</id>
+    <published>2017-05-01T20:30:13.000Z</published>
+    <updated>2017-05-01T20:39:10.411Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Comming-back-to-my-HEXO-again"><a href="#Comming-back-to-my-HEXO-again" class="headerlink" title="Comming back to my HEXO again!"></a>Comming back to my HEXO again!</h1><p>Hope it stay alive!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Comming-back-to-my-HEXO-again&quot;&gt;&lt;a href=&quot;#Comming-back-to-my-HEXO-again&quot; class=&quot;headerlink&quot; title=&quot;Comming back to my HEXO again!&quot;&gt;&lt;/
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/08/2017-4-8-RTR/"/>
+    <id>http://yoursite.com/2017/04/08/2017-4-8-RTR/</id>
+    <published>2017-04-08T12:54:52.237Z</published>
+    <updated>2017-04-09T02:39:35.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="RTR-2017-4-8"><a href="#RTR-2017-4-8" class="headerlink" title="RTR-2017.4.8"></a>RTR-2017.4.8</h1><h2 id="5-6-2-Screen-based-antialiasing"><a href="#5-6-2-Screen-based-antialiasing" class="headerlink" title="5.6.2 Screen-based antialiasing"></a>5.6.2 Screen-based antialiasing</h2><ul>
+<li>What is Screen-Base method?  <blockquote>
+<p>They operate only on the output samples of the pipeline without any knowledge of the objects being rendered.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="let’s-see-something-with-MSAA"><a href="#let’s-see-something-with-MSAA" class="headerlink" title="let’s see something with MSAA"></a>let’s see something with MSAA</h3><p>sampling various types of data at differing frequencies.<br>They can share some computations around samples. a.k.a CSAA.  </p>
+<p><strong>Fragment is shaded only once!</strong></p>
+<p>separating coverage from shading and depth storage.<em>Carpenter’s A-buffer</em>  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;RTR-2017-4-8&quot;&gt;&lt;a href=&quot;#RTR-2017-4-8&quot; class=&quot;headerlink&quot; title=&quot;RTR-2017.4.8&quot;&gt;&lt;/a&gt;RTR-2017.4.8&lt;/h1&gt;&lt;h2 id=&quot;5-6-2-Screen-based-antial
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/04/07/zuile/"/>
+    <id>http://yoursite.com/2017/04/07/zuile/</id>
+    <published>2017-04-07T12:49:04.226Z</published>
+    <updated>2017-04-07T12:49:37.862Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2017-4-7"><a href="#2017-4-7" class="headerlink" title="2017.4.7"></a>2017.4.7</h2><h3 id="上午："><a href="#上午：" class="headerlink" title="上午："></a>上午：</h3><p>  搞了下SSLspeedy2下chrome登陆的问题。</p>
+<h3 id="下午："><a href="#下午：" class="headerlink" title="下午："></a>下午：</h3><p>  本来想找那个协方差矩阵的求法。<br>  看了回paper原文。<br>  看到了performance测试，感觉glslc有点意思。。<br>  看glslc。。体验了一把。但是不能查看number of instruction.<br>  发现需要zbStudio的支持</p>
+<h3 id="晚上："><a href="#晚上：" class="headerlink" title="晚上："></a>晚上：</h3><p>  看了下atom编辑器和酷炫插件。。<br>  看了下switch游戏机。。<br>  关注下游戏资讯。。</p>
+<p>  看了下lua。。。<br>  和zbStudio的tutorial<br>  然而glsl插件还是没装进去</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2017-4-7&quot;&gt;&lt;a href=&quot;#2017-4-7&quot; class=&quot;headerlink&quot; title=&quot;2017.4.7&quot;&gt;&lt;/a&gt;2017.4.7&lt;/h2&gt;&lt;h3 id=&quot;上午：&quot;&gt;&lt;a href=&quot;#上午：&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>随笔NO.2</title>
