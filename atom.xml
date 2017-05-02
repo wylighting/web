@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-01T21:16:49.185Z</updated>
+  <updated>2017-05-02T17:27:46.669Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Differences between Bump mapping, Normal mapping, Displacement mapping &amp; Parallax mapping</title>
+    <link href="http://yoursite.com/2017/05/03/post-in-linuxmint/"/>
+    <id>http://yoursite.com/2017/05/03/post-in-linuxmint/</id>
+    <published>2017-05-02T17:01:41.000Z</published>
+    <updated>2017-05-02T17:27:46.669Z</updated>
+    
+    <content type="html"><![CDATA[<p>Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.</p>
+<p>Now, I’m going to make a summary of the differences between them.<br><a id="more"></a></p>
+<p><strong>Common aspect:</strong></p>
+<p>Same ideas in adding extra details that doesn’t exist in geometry. All a technique that significantly <em>boosts a textured surface’s</em> detail and gives it a sense of depth.</p>
+<p>Some comments thinks that Any technique that fakes a relief on flat geometry is called bump mapping. It’s a generic name, and it contains height mapping &amp; normal mapping.<br>But in this article, we assume the bump mapping is the “height map” and normal mapping is a better method for bump mapping. </p>
+<p>Now, we discuss them seperately.</p>
+<h2 id="Bump-mapping"><a href="#Bump-mapping" class="headerlink" title="Bump mapping"></a>Bump mapping</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input:"></a>Input:</h3><p>The input is <strong>height map</strong>. Usually a gray scale image.</p>
+<p>When values in a bump map are close to 50% gray, there’s little to no detail that comes through on the surface. When values get brighter, working their way to white, details appear to pull out of the surface. To contrast that, when values get darker and closer to black, they appear to be pushing into the surface. </p>
+<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>Save space. </p>
+<h3 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages:"></a>Disadvantages:</h3><p>We need to calculate the normal at that texel based on the height value stored in heightmap, then use the result normal to do shading.</p>
+<p>We need to use the height imformation to calculate coresponding normal vector! How to do it?</p>
+<ul>
+<li>A typical method is just like this:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　x_gradient = pixel(x<span class="number">-1</span>, y) - pixel(x+<span class="number">1</span>, y)</div><div class="line">　　y_gradient = pixel(x, y<span class="number">-1</span>) - pixel(x, y+<span class="number">1</span>)</div><div class="line">New_Normal = Normal + (U * x_gradient) + (V * y_gradient)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="images\bumpmapping.png" alt=""></p>
+<p>We can edit it in a 2D application like Photoshop.</p>
+<h2 id="Normal-mapping"><a href="#Normal-mapping" class="headerlink" title="Normal mapping"></a>Normal mapping</h2><p>A newer, better type of bump map.It makes the output quicker than traditional bump mapping.</p>
+<h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input:"></a>Input:</h3><p>RGB texture</p>
+<p>Two different types to present normal maps:<br><strong>Tangent Space normal maps &amp;　Object Space normal maps</strong> (slightly improved performance over tangent map) </p>
+<h3 id="Advantages-1"><a href="#Advantages-1" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>Unlike normal calculation in height map(bump mapping), we don’t need to calculate here at all because the normal is already in the normal map texture.</p>
+<p>It’s also need to be mentioned that normal map is more easier to integrate into rendering pipeline, especially the support of mobile game engine.</p>
+<h2 id="Displacement-mapping"><a href="#Displacement-mapping" class="headerlink" title="Displacement mapping"></a>Displacement mapping</h2><h3 id="Input-2"><a href="#Input-2" class="headerlink" title="Input:"></a>Input:</h3><p>height map similar to bump mapping.</p>
+<p>But the usage of them is pretty different. In bump mapping, the height map is used to calculate new normal with derivation from the map, but it is used to simulate the actual deformation of the geometric model in displacement map. In a word, it affects the geometric properties instead of normal vector.</p>
+<p>How to infect the actual model?<br>One way to do this is to take a plane with roughly 1000 vertices and displace each of these vertices based on a value in a texture that tells us the height of the plane at a specific area.</p>
+<h3 id="Disadvantages-1"><a href="#Disadvantages-1" class="headerlink" title="Disadvantages:"></a>Disadvantages:</h3><p>A problem with displacing vertices is that a plane needs to consist of <strong>a large amount of triangles</strong> to get a realistic displacement otherwise the displacement looks too blocky. As each flat surface could then require over 1000 vertices this quickly becomes <em>computationally infeasible</em>.</p>
+<p>The significant cost is the main unsatisfactory aspect.</p>
+<h2 id="Parallax-mapping"><a href="#Parallax-mapping" class="headerlink" title="Parallax mapping"></a>Parallax mapping</h2><p>A fast approximation method in visual for Displacement mapping.</p>
+<p>In general, Parallax mapping is a lot better in conveying a sense of depth and together with normal mapping gives incredibly realistic results. </p>
+<h3 id="Input-3"><a href="#Input-3" class="headerlink" title="Input:"></a>Input:</h3><p>The height map same as dispalcement mapping.</p>
+<h3 id="Advantages-2"><a href="#Advantages-2" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>The displacement mapping technique that doesn’t require extra vertex data to convey depth. It just makes some changes on the texture color we saw, and this trick obtains a similar result as displacement mapping with little computational cost.</p>
+<h2 id="Some-tips-in-modeling-technology"><a href="#Some-tips-in-modeling-technology" class="headerlink" title="Some tips in modeling technology:"></a>Some tips in modeling technology:</h2><p>高模与低模的概念与用途。 </p>
+<p>高模就是分段很细的，有很多很多个面构成，上面有很多节点，这样的模型在操作时运行比较慢，但可以做得很精细；低模相反，但低模再法线贴图或普通凹凸贴图时也能显示的比实际的精细得多，所以很多时候做大场景或特别精细的时候要用高模导出法线贴图，贴到低模上去操作，这样会大大提高效率。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.&lt;/p&gt;
+&lt;p&gt;Now, I’m going to make a summary of the differences between them.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Computer Graphics" scheme="http://yoursite.com/categories/Computer-Graphics/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+  </entry>
   
   <entry>
     <title>CommingBack</title>
@@ -42,9 +98,9 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2017/04/08/2017-4-8-RTR/"/>
-    <id>http://yoursite.com/2017/04/08/2017-4-8-RTR/</id>
-    <published>2017-04-08T12:54:52.237Z</published>
+    <link href="http://yoursite.com/2017/04/09/2017-4-8-RTR/"/>
+    <id>http://yoursite.com/2017/04/09/2017-4-8-RTR/</id>
+    <published>2017-04-09T02:39:35.528Z</published>
     <updated>2017-04-09T02:39:35.528Z</updated>
     
     <content type="html"><![CDATA[<h1 id="RTR-2017-4-8"><a href="#RTR-2017-4-8" class="headerlink" title="RTR-2017.4.8"></a>RTR-2017.4.8</h1><h2 id="5-6-2-Screen-based-antialiasing"><a href="#5-6-2-Screen-based-antialiasing" class="headerlink" title="5.6.2 Screen-based antialiasing"></a>5.6.2 Screen-based antialiasing</h2><ul>
@@ -71,7 +127,7 @@
     <title></title>
     <link href="http://yoursite.com/2017/04/07/zuile/"/>
     <id>http://yoursite.com/2017/04/07/zuile/</id>
-    <published>2017-04-07T12:49:04.226Z</published>
+    <published>2017-04-07T12:49:37.862Z</published>
     <updated>2017-04-07T12:49:37.862Z</updated>
     
     <content type="html"><![CDATA[<h2 id="2017-4-7"><a href="#2017-4-7" class="headerlink" title="2017.4.7"></a>2017.4.7</h2><h3 id="上午："><a href="#上午：" class="headerlink" title="上午："></a>上午：</h3><p>  搞了下SSLspeedy2下chrome登陆的问题。</p>
@@ -93,7 +149,7 @@
     <title>随笔NO.2</title>
     <link href="http://yoursite.com/2016/12/11/2016-12-11-no-2/"/>
     <id>http://yoursite.com/2016/12/11/2016-12-11-no-2/</id>
-    <published>2016-12-11T03:52:38.538Z</published>
+    <published>2016-12-11T04:07:43.019Z</published>
     <updated>2016-12-11T04:07:43.019Z</updated>
     
     <content type="html"><![CDATA[<h1 id="优班结束，start-a-new-life"><a href="#优班结束，start-a-new-life" class="headerlink" title="优班结束，start a new life"></a>优班结束，start a new life</h1><p>好久没有更新博客了。<br>12月9号晚上。搞了两个月之久的优班终于结束了。。。<br>本以为从三句半突然变换方式很不好，没想到效果还不错。。<br>三年前谁又能知道我们班可以获得邦清班呢？  </p>
@@ -121,7 +177,7 @@
     <title>C++内存管理</title>
     <link href="http://yoursite.com/2016/11/27/2016-11-27-c/"/>
     <id>http://yoursite.com/2016/11/27/2016-11-27-c/</id>
-    <published>2016-11-27T03:46:51.504Z</published>
+    <published>2016-11-27T03:46:51.652Z</published>
     <updated>2016-11-27T03:46:51.620Z</updated>
     
     <content type="html"><![CDATA[<p>转<a href="http://blog.csdn.net/masterft/article/details/1711706" target="_blank" rel="external">http://blog.csdn.net/masterft/article/details/1711706</a></p>
@@ -182,10 +238,44 @@ new
   </entry>
   
   <entry>
+    <title>Probability and Hashing PART 1</title>
+    <link href="http://yoursite.com/2016/11/19/2016-11-16-probability-and-hashing-part-1/"/>
+    <id>http://yoursite.com/2016/11/19/2016-11-16-probability-and-hashing-part-1/</id>
+    <published>2016-11-19T03:59:27.297Z</published>
+    <updated>2016-11-19T03:59:27.297Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Rolling-a-die-骰子"><a href="#Rolling-a-die-骰子" class="headerlink" title="Rolling a die(骰子)"></a>Rolling a die(骰子)</h2><h2 id="Sampling-and-Monte-Carlo-Simulations"><a href="#Sampling-and-Monte-Carlo-Simulations" class="headerlink" title="Sampling and Monte Carlo Simulations"></a>Sampling and Monte Carlo Simulations</h2><h3 id="The-Copenhagen-Doctrine"><a href="#The-Copenhagen-Doctrine" class="headerlink" title="The Copenhagen Doctrine"></a>The Copenhagen Doctrine</h3><p>The behavior of the physical world cannot be predicted.</p>
+<h3 id="Nondeterminism"><a href="#Nondeterminism" class="headerlink" title="Nondeterminism"></a>Nondeterminism</h3><ol>
+<li><p>causal nondeterminism (因果不确定性)<br>Not every event is caused by previous events</p>
+</li>
+<li><p>predictive nondeterminism(预测不确定性)<br>Lack of knowledge about the world makes it impossible make<br>accurate predications about future states<br>原理上无法预测？没有足够的信息而无法预测？</p>
+</li>
+</ol>
+<h3 id="Stochastic-Processes"><a href="#Stochastic-Processes" class="headerlink" title="Stochastic Processes"></a>Stochastic Processes</h3><p>An ongoing process where the next state might depend on both the previous states and some random element.</p>
+<h3 id="some-English-notes"><a href="#some-English-notes" class="headerlink" title="some English notes"></a>some English notes</h3><p>We looked at things quite informally (非正式地) before.<br> lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).</p>
+<p>parabolic path(抛物线轨迹)<br>The physical world is a completely predicable place.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Rolling-a-die-骰子&quot;&gt;&lt;a href=&quot;#Rolling-a-die-骰子&quot; class=&quot;headerlink&quot; title=&quot;Rolling a die(骰子)&quot;&gt;&lt;/a&gt;Rolling a die(骰子)&lt;/h2&gt;&lt;h2 id=&quot;Samplin
+    
+    </summary>
+    
+      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
+    
+    
+      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
+    
+      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PAT 1002. A+B for Polynomials</title>
     <link href="http://yoursite.com/2016/11/18/2016-11-18-pat-1002-ab-for-polynomials/"/>
     <id>http://yoursite.com/2016/11/18/2016-11-18-pat-1002-ab-for-polynomials/</id>
-    <published>2016-11-18T13:05:01.224Z</published>
+    <published>2016-11-18T13:05:01.324Z</published>
     <updated>2016-11-18T13:05:01.304Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.patest.cn/contests/pat-a-practise/1002" target="_blank" rel="external">https://www.patest.cn/contests/pat-a-practise/1002</a></p>
@@ -227,7 +317,7 @@ new
     <title>listening comprehension</title>
     <link href="http://yoursite.com/2016/11/16/2016-11-16-listening-comprehension/"/>
     <id>http://yoursite.com/2016/11/16/2016-11-16-listening-comprehension/</id>
-    <published>2016-11-16T15:34:43.740Z</published>
+    <published>2016-11-16T15:34:44.886Z</published>
     <updated>2016-11-16T15:34:44.174Z</updated>
     
     <content type="html"><![CDATA[<ol>
@@ -298,44 +388,10 @@ new
   </entry>
   
   <entry>
-    <title>Probability and Hashing PART 1</title>
-    <link href="http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/"/>
-    <id>http://yoursite.com/2016/11/16/2016-11-16-probability-and-hashing-part-1/</id>
-    <published>2016-11-16T07:56:01.907Z</published>
-    <updated>2016-11-19T03:59:27.297Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Rolling-a-die-骰子"><a href="#Rolling-a-die-骰子" class="headerlink" title="Rolling a die(骰子)"></a>Rolling a die(骰子)</h2><h2 id="Sampling-and-Monte-Carlo-Simulations"><a href="#Sampling-and-Monte-Carlo-Simulations" class="headerlink" title="Sampling and Monte Carlo Simulations"></a>Sampling and Monte Carlo Simulations</h2><h3 id="The-Copenhagen-Doctrine"><a href="#The-Copenhagen-Doctrine" class="headerlink" title="The Copenhagen Doctrine"></a>The Copenhagen Doctrine</h3><p>The behavior of the physical world cannot be predicted.</p>
-<h3 id="Nondeterminism"><a href="#Nondeterminism" class="headerlink" title="Nondeterminism"></a>Nondeterminism</h3><ol>
-<li><p>causal nondeterminism (因果不确定性)<br>Not every event is caused by previous events</p>
-</li>
-<li><p>predictive nondeterminism(预测不确定性)<br>Lack of knowledge about the world makes it impossible make<br>accurate predications about future states<br>原理上无法预测？没有足够的信息而无法预测？</p>
-</li>
-</ol>
-<h3 id="Stochastic-Processes"><a href="#Stochastic-Processes" class="headerlink" title="Stochastic Processes"></a>Stochastic Processes</h3><p>An ongoing process where the next state might depend on both the previous states and some random element.</p>
-<h3 id="some-English-notes"><a href="#some-English-notes" class="headerlink" title="some English notes"></a>some English notes</h3><p>We looked at things quite informally (非正式地) before.<br> lay down some of the foundations we need to understand stochastic situations more rigorously(严密地,严厉地).</p>
-<p>parabolic path(抛物线轨迹)<br>The physical world is a completely predicable place.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Rolling-a-die-骰子&quot;&gt;&lt;a href=&quot;#Rolling-a-die-骰子&quot; class=&quot;headerlink&quot; title=&quot;Rolling a die(骰子)&quot;&gt;&lt;/a&gt;Rolling a die(骰子)&lt;/h2&gt;&lt;h2 id=&quot;Samplin
-    
-    </summary>
-    
-      <category term="MIT 6.00 STUDY NOTES" scheme="http://yoursite.com/categories/MIT-6-00-STUDY-NOTES/"/>
-    
-    
-      <category term="study note" scheme="http://yoursite.com/tags/study-note/"/>
-    
-      <category term="MOOC" scheme="http://yoursite.com/tags/MOOC/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PAT 1001. A+B Format</title>
     <link href="http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/"/>
     <id>http://yoursite.com/2016/11/16/2016-11-16-pat-1001-ab-format/</id>
-    <published>2016-11-16T03:25:28.442Z</published>
+    <published>2016-11-16T03:29:51.322Z</published>
     <updated>2016-11-16T03:29:51.322Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1001-A-B-Format"><a href="#1001-A-B-Format" class="headerlink" title="1001. A+B Format"></a>1001. A+B Format</h2><p><a href="https://www.patest.cn/contests/pat-a-practise/1001" target="_blank" rel="external">https://www.patest.cn/contests/pat-a-practise/1001</a></p>
@@ -378,7 +434,7 @@ new
     <title>Random Walks and Simulation Models PART 3</title>
     <link href="http://yoursite.com/2016/11/15/no-4-random-walks-and-simulation-models-part-3/"/>
     <id>http://yoursite.com/2016/11/15/no-4-random-walks-and-simulation-models-part-3/</id>
-    <published>2016-11-15T10:46:33.187Z</published>
+    <published>2016-11-15T10:51:38.768Z</published>
     <updated>2016-11-15T10:51:38.768Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Running-Python-Codes"><a href="#Running-Python-Codes" class="headerlink" title="Running Python Codes"></a>Running Python Codes</h2><p><strong>an importable module</strong> is not a <strong>script</strong> in python.</p>
@@ -417,7 +473,7 @@ new
     <title>Random Walks and Simulation Models PART 2</title>
     <link href="http://yoursite.com/2016/11/15/no-3-random-walks-and-simulation-models-part-2/"/>
     <id>http://yoursite.com/2016/11/15/no-3-random-walks-and-simulation-models-part-2/</id>
-    <published>2016-11-14T16:57:54.757Z</published>
+    <published>2016-11-14T17:05:34.228Z</published>
     <updated>2016-11-14T17:05:12.783Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Brownian-Motion"><a href="#Brownian-Motion" class="headerlink" title="Brownian Motion"></a>Brownian Motion</h2><p>In 1827, the Scottish botanist(植物学家) Robert Brown observed that pollen (花粉)particles suspended in water seemed to float around at random.<br><em>made no attempts to model it mathematically.</em></p>
@@ -461,9 +517,9 @@ new
   
   <entry>
     <title>Random Walks and Simulation Models PART 1</title>
-    <link href="http://yoursite.com/2016/11/14/no-2-random-walks-and-simulation-models/"/>
-    <id>http://yoursite.com/2016/11/14/no-2-random-walks-and-simulation-models/</id>
-    <published>2016-11-14T04:10:50.990Z</published>
+    <link href="http://yoursite.com/2016/11/15/no-2-random-walks-and-simulation-models/"/>
+    <id>http://yoursite.com/2016/11/15/no-2-random-walks-and-simulation-models/</id>
+    <published>2016-11-14T16:15:21.103Z</published>
     <updated>2016-11-14T16:15:21.103Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Simulation-Models"><a href="#Simulation-Models" class="headerlink" title="Simulation Models"></a>Simulation Models</h2><p>an <em>experimental device</em> called model.  </p>
@@ -506,9 +562,9 @@ new
   
   <entry>
     <title>NO.1 Introduction to Computation</title>
-    <link href="http://yoursite.com/2016/11/12/no-1-introduction-to-computation/"/>
-    <id>http://yoursite.com/2016/11/12/no-1-introduction-to-computation/</id>
-    <published>2016-11-12T04:21:32.419Z</published>
+    <link href="http://yoursite.com/2016/11/13/no-1-introduction-to-computation/"/>
+    <id>http://yoursite.com/2016/11/13/no-1-introduction-to-computation/</id>
+    <published>2016-11-13T02:51:17.939Z</published>
     <updated>2016-11-13T02:51:17.939Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Fundamentation-of-computer"><a href="#Fundamentation-of-computer" class="headerlink" title="Fundamentation of computer"></a>Fundamentation of computer</h2><ul>
@@ -574,9 +630,9 @@ new
   
   <entry>
     <title>随笔NO.1</title>
-    <link href="http://yoursite.com/2016/11/11/diary-no-1/"/>
-    <id>http://yoursite.com/2016/11/11/diary-no-1/</id>
-    <published>2016-11-11T11:11:23.517Z</published>
+    <link href="http://yoursite.com/2016/11/12/diary-no-1/"/>
+    <id>http://yoursite.com/2016/11/12/diary-no-1/</id>
+    <published>2016-11-11T16:51:24.637Z</published>
     <updated>2016-11-11T16:51:24.637Z</updated>
     
     <content type="html"><![CDATA[<h1 id="lalala终于搭好了自己的blog"><a href="#lalala终于搭好了自己的blog" class="headerlink" title="lalala终于搭好了自己的blog"></a>lalala终于搭好了自己的blog</h1><a id="more"></a>

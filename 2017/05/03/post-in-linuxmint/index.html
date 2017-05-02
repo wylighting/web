@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <title>Differences between Bump mapping, Normal mapping, Displacement mapping &amp; Parallax mapping | swordigo | 嗨呀 我还能说什么= =</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="study note">
+  <meta name="description" content="Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.
+Now, I’m going to make a summary of the differences between them.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Differences between Bump mapping, Normal mapping, Displacement mapping & Parallax mapping">
+<meta property="og:url" content="http://yoursite.com/2017/05/03/post-in-linuxmint/index.html">
+<meta property="og:site_name" content="swordigo">
+<meta property="og:description" content="Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.
+Now, I’m going to make a summary of the differences between them.">
+<meta property="og:image" content="http://yoursite.com/images\bumpmapping.png">
+<meta property="og:updated_time" content="2017-05-02T17:27:46.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Differences between Bump mapping, Normal mapping, Displacement mapping & Parallax mapping">
+<meta name="twitter:description" content="Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.
+Now, I’m going to make a summary of the differences between them.">
+<meta name="twitter:image" content="http://yoursite.com/images\bumpmapping.png">
+  
+    <link rel="alternative" href="/atom.xml" title="swordigo" type="application/atom+xml">
+  
+  <meta name="summary" content="Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.
+Now, I’m going to make a summary of the differences between them.">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css?v=1.1.10">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/avatar_jpg.jpg"></a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Ren Haocheng</h5>
+          <a href="mailto:renhaocheng@163.com" title="renhaocheng@163.com" class="mail">renhaocheng@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/swordigo1995" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+
+      <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>swordigo &copy; 2013 - 2017</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+    </div>
+  </div>
+</aside>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Differences between Bump mapping, Normal mapping, Displacement mapping &amp; Parallax mapping</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container">
+        <h1 class="title">Differences between Bump mapping, Normal mapping, Displacement mapping &amp; Parallax mapping</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-02T17:01:41.000Z" itemprop="datePublished" class="page-time">
+  2017-05-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Computer-Graphics/">Computer Graphics</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bump-mapping"><span class="post-toc-number">1.</span> <span class="post-toc-text">Bump mapping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Input"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Input:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Advantages"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Advantages:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Disadvantages"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Disadvantages:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Normal-mapping"><span class="post-toc-number">2.</span> <span class="post-toc-text">Normal mapping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Input-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Input:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Advantages-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Advantages:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Displacement-mapping"><span class="post-toc-number">3.</span> <span class="post-toc-text">Displacement mapping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Input-2"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Input:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Disadvantages-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Disadvantages:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Parallax-mapping"><span class="post-toc-number">4.</span> <span class="post-toc-text">Parallax mapping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Input-3"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Input:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Advantages-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Advantages:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Some-tips-in-modeling-technology"><span class="post-toc-number">5.</span> <span class="post-toc-text">Some tips in modeling technology:</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-post-in-linuxmint" 
+  class="post-article article-type-post" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Differences between Bump mapping, Normal mapping, Displacement mapping & Parallax mapping</h1>
+        <div class="post-meta">
+            <time datetime="2017-05-02T17:01:41.000Z" itemprop="datePublished" class="post-time">
+  2017-05-03
+</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Computer-Graphics/">Computer Graphics</a></li></ul>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Because of the similar function of these three texture mapping method, we often can not distinguish from them clearly.</p>
+<p>Now, I’m going to make a summary of the differences between them.<br><a id="more"></a></p>
+<p><strong>Common aspect:</strong></p>
+<p>Same ideas in adding extra details that doesn’t exist in geometry. All a technique that significantly <em>boosts a textured surface’s</em> detail and gives it a sense of depth.</p>
+<p>Some comments thinks that Any technique that fakes a relief on flat geometry is called bump mapping. It’s a generic name, and it contains height mapping &amp; normal mapping.<br>But in this article, we assume the bump mapping is the “height map” and normal mapping is a better method for bump mapping. </p>
+<p>Now, we discuss them seperately.</p>
+<h2 id="Bump-mapping"><a href="#Bump-mapping" class="headerlink" title="Bump mapping"></a>Bump mapping</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input:"></a>Input:</h3><p>The input is <strong>height map</strong>. Usually a gray scale image.</p>
+<p>When values in a bump map are close to 50% gray, there’s little to no detail that comes through on the surface. When values get brighter, working their way to white, details appear to pull out of the surface. To contrast that, when values get darker and closer to black, they appear to be pushing into the surface. </p>
+<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>Save space. </p>
+<h3 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages:"></a>Disadvantages:</h3><p>We need to calculate the normal at that texel based on the height value stored in heightmap, then use the result normal to do shading.</p>
+<p>We need to use the height imformation to calculate coresponding normal vector! How to do it?</p>
+<ul>
+<li>A typical method is just like this:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　x_gradient = pixel(x<span class="number">-1</span>, y) - pixel(x+<span class="number">1</span>, y)</div><div class="line">　　y_gradient = pixel(x, y<span class="number">-1</span>) - pixel(x, y+<span class="number">1</span>)</div><div class="line">New_Normal = Normal + (U * x_gradient) + (V * y_gradient)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="images\bumpmapping.png" alt=""></p>
+<p>We can edit it in a 2D application like Photoshop.</p>
+<h2 id="Normal-mapping"><a href="#Normal-mapping" class="headerlink" title="Normal mapping"></a>Normal mapping</h2><p>A newer, better type of bump map.It makes the output quicker than traditional bump mapping.</p>
+<h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input:"></a>Input:</h3><p>RGB texture</p>
+<p>Two different types to present normal maps:<br><strong>Tangent Space normal maps &amp;　Object Space normal maps</strong> (slightly improved performance over tangent map) </p>
+<h3 id="Advantages-1"><a href="#Advantages-1" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>Unlike normal calculation in height map(bump mapping), we don’t need to calculate here at all because the normal is already in the normal map texture.</p>
+<p>It’s also need to be mentioned that normal map is more easier to integrate into rendering pipeline, especially the support of mobile game engine.</p>
+<h2 id="Displacement-mapping"><a href="#Displacement-mapping" class="headerlink" title="Displacement mapping"></a>Displacement mapping</h2><h3 id="Input-2"><a href="#Input-2" class="headerlink" title="Input:"></a>Input:</h3><p>height map similar to bump mapping.</p>
+<p>But the usage of them is pretty different. In bump mapping, the height map is used to calculate new normal with derivation from the map, but it is used to simulate the actual deformation of the geometric model in displacement map. In a word, it affects the geometric properties instead of normal vector.</p>
+<p>How to infect the actual model?<br>One way to do this is to take a plane with roughly 1000 vertices and displace each of these vertices based on a value in a texture that tells us the height of the plane at a specific area.</p>
+<h3 id="Disadvantages-1"><a href="#Disadvantages-1" class="headerlink" title="Disadvantages:"></a>Disadvantages:</h3><p>A problem with displacing vertices is that a plane needs to consist of <strong>a large amount of triangles</strong> to get a realistic displacement otherwise the displacement looks too blocky. As each flat surface could then require over 1000 vertices this quickly becomes <em>computationally infeasible</em>.</p>
+<p>The significant cost is the main unsatisfactory aspect.</p>
+<h2 id="Parallax-mapping"><a href="#Parallax-mapping" class="headerlink" title="Parallax mapping"></a>Parallax mapping</h2><p>A fast approximation method in visual for Displacement mapping.</p>
+<p>In general, Parallax mapping is a lot better in conveying a sense of depth and together with normal mapping gives incredibly realistic results. </p>
+<h3 id="Input-3"><a href="#Input-3" class="headerlink" title="Input:"></a>Input:</h3><p>The height map same as dispalcement mapping.</p>
+<h3 id="Advantages-2"><a href="#Advantages-2" class="headerlink" title="Advantages:"></a>Advantages:</h3><p>The displacement mapping technique that doesn’t require extra vertex data to convey depth. It just makes some changes on the texture color we saw, and this trick obtains a similar result as displacement mapping with little computational cost.</p>
+<h2 id="Some-tips-in-modeling-technology"><a href="#Some-tips-in-modeling-technology" class="headerlink" title="Some tips in modeling technology:"></a>Some tips in modeling technology:</h2><p>高模与低模的概念与用途。 </p>
+<p>高模就是分段很细的，有很多很多个面构成，上面有很多节点，这样的模型在操作时运行比较慢，但可以做得很精细；低模相反，但低模再法线贴图或普通凹凸贴图时也能显示的比实际的精细得多，所以很多时候做大场景或特别精细的时候要用高模导出法线贴图，贴到低模上去操作，这样会大大提高效率。</p>
+
+        </div>
+        
+        <blockquote class="post-copyright">
+    <div class="content">
+        转载请注明原文出处：<a href="/2017/05/03/post-in-linuxmint/" target="_blank" rel="external">http://yoursite.com/2017/05/03/post-in-linuxmint/</a>
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar_jpg.jpg" alt="Ren Haocheng">
+            Ren Haocheng
+        </a>
+    </footer>
+</blockquote>
+        
+<div class="post-reward">
+    <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study-note/">study note</a></li></ul>
+
+
+            
+<div class="post-share-wrap">
+    <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+    <a href="javascript:;" id="share-fab" class="post-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+        </div>
+    </div>   
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/02/CommingBack/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CommingBack</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+    
+<div class="duoshuo">
+	<div class="ds-thread" data-thread-key="post-in-linuxmint" data-title="Differences between Bump mapping, Normal mapping, Displacement mapping &amp; Parallax mapping" data-url="http://yoursite.com/2017/05/03/post-in-linuxmint/"></div>
+</div>
+<script src="/js/embed.min.js?v=1.1.10"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js" async="async"></script>
+<script>
+var duoshuoQuery = {short_name:'swordigo', theme: 'none'}
+</script>
+
+
+
+
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢你大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+</div>
+  </main>
+  <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>var BLOG = { ROOT: '/' };
+BLOG.SHARE = {
+title: "Differences between Bump mapping, Normal mapping, Displacement mapping & Parallax mapping",
+pic: "/img/avatar_jpg.jpg",
+summary: document.getElementsByName('summary')[0].content,
+url: "http://yoursite.com/2017/05/03/post-in-linuxmint/" }
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+  <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/js/main.min.js?v=1.1.10"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.1.10"></script>
+
+
+
+
+
+<script src="//s95.cnzz.com/z_stat.php?id=1260800003&web_id=1260800003"></script>
+
+
+
+
+
+</body>
+</html>
